@@ -1,0 +1,157 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="351pt" height="899pt" viewBox="0.00 0.00 351.00 899.00">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 895)">
+<title>TriadicClosureWorkflow</title>
+<polygon fill="white" stroke="none" points="-4,4 -4,-895 346.83,-895 346.83,4 -4,4"/>
+<!-- Start -->
+<g id="node1" class="node">
+<title>Start</title>
+<polygon fill="none" stroke="black" points="264.83,-891 99.66,-891 99.66,-790.6 264.83,-790.6 264.83,-891"/>
+<text xml:space="preserve" text-anchor="middle" x="182.24" y="-877.1" font-family="Helvetica,sans-Serif" font-size="11.00">User Input (via GUI)</text>
+<text xml:space="preserve" text-anchor="middle" x="182.24" y="-863.9" font-family="Helvetica,sans-Serif" font-size="11.00">• number of nodes (N)</text>
+<text xml:space="preserve" text-anchor="middle" x="182.24" y="-850.7" font-family="Helvetica,sans-Serif" font-size="11.00">• initial probability (p0)</text>
+<text xml:space="preserve" text-anchor="middle" x="182.24" y="-837.5" font-family="Helvetica,sans-Serif" font-size="11.00">• closure probability (p_close)</text>
+<text xml:space="preserve" text-anchor="middle" x="182.24" y="-824.3" font-family="Helvetica,sans-Serif" font-size="11.00">• decay probability (p_decay)</text>
+<text xml:space="preserve" text-anchor="middle" x="182.24" y="-811.1" font-family="Helvetica,sans-Serif" font-size="11.00">• time steps (T)</text>
+<text xml:space="preserve" text-anchor="middle" x="182.24" y="-797.9" font-family="Helvetica,sans-Serif" font-size="11.00">• snapshot interval</text>
+</g>
+<!-- Init -->
+<g id="node2" class="node">
+<title>Init</title>
+<polygon fill="none" stroke="black" points="285.92,-753.6 78.57,-753.6 78.57,-717.6 285.92,-717.6 285.92,-753.6"/>
+<text xml:space="preserve" text-anchor="middle" x="182.24" y="-738.9" font-family="Helvetica,sans-Serif" font-size="11.00">Random Graph Creation</text>
+<text xml:space="preserve" text-anchor="middle" x="182.24" y="-725.7" font-family="Helvetica,sans-Serif" font-size="11.00">Generate Erdős–Rényi graph G(N, p0)</text>
+</g>
+<!-- Start&#45;&gt;Init -->
+<g id="edge1" class="edge">
+<title>Start-&gt;Init</title>
+<path fill="none" stroke="black" d="M182.24,-790.32C182.24,-781.76 182.24,-773.13 182.24,-765.36"/>
+<polygon fill="black" stroke="black" points="185.74,-765.52 182.24,-755.52 178.74,-765.52 185.74,-765.52"/>
+</g>
+<!-- LoopStart -->
+<g id="node3" class="node">
+<title>LoopStart</title>
+<polygon fill="none" stroke="black" points="287.15,-680.6 77.34,-680.6 77.34,-644.6 287.15,-644.6 287.15,-680.6"/>
+<text xml:space="preserve" text-anchor="middle" x="182.24" y="-659.3" font-family="Helvetica,sans-Serif" font-size="11.00">Triadic Closure Loop (for each iteration)</text>
+</g>
+<!-- Init&#45;&gt;LoopStart -->
+<g id="edge2" class="edge">
+<title>Init-&gt;LoopStart</title>
+<path fill="none" stroke="black" d="M182.24,-717.41C182.24,-709.83 182.24,-700.7 182.24,-692.14"/>
+<polygon fill="black" stroke="black" points="185.74,-692.14 182.24,-682.14 178.74,-692.14 185.74,-692.14"/>
+</g>
+<!-- Identify -->
+<g id="node4" class="node">
+<title>Identify</title>
+<polygon fill="none" stroke="black" points="224.49,-607.6 0,-607.6 0,-571.6 224.49,-571.6 224.49,-607.6"/>
+<text xml:space="preserve" text-anchor="middle" x="112.24" y="-592.9" font-family="Helvetica,sans-Serif" font-size="11.00">Identify open triads</text>
+<text xml:space="preserve" text-anchor="middle" x="112.24" y="-579.7" font-family="Helvetica,sans-Serif" font-size="11.00">(A — B — C where A and C not connected)</text>
+</g>
+<!-- LoopStart&#45;&gt;Identify -->
+<g id="edge3" class="edge">
+<title>LoopStart-&gt;Identify</title>
+<path fill="none" stroke="black" d="M165.3,-644.41C156.79,-635.78 146.31,-625.16 136.93,-615.63"/>
+<polygon fill="black" stroke="black" points="139.61,-613.37 130.1,-608.71 134.62,-618.28 139.61,-613.37"/>
+</g>
+<!-- ProbClose -->
+<g id="node5" class="node">
+<title>ProbClose</title>
+<polygon fill="none" stroke="black" points="208.91,-534.6 59.58,-534.6 59.58,-498.6 208.91,-498.6 208.91,-534.6"/>
+<text xml:space="preserve" text-anchor="middle" x="134.24" y="-519.9" font-family="Helvetica,sans-Serif" font-size="11.00">With probability p_close</text>
+<text xml:space="preserve" text-anchor="middle" x="134.24" y="-506.7" font-family="Helvetica,sans-Serif" font-size="11.00">add edge between A and C</text>
+</g>
+<!-- Identify&#45;&gt;ProbClose -->
+<g id="edge4" class="edge">
+<title>Identify-&gt;ProbClose</title>
+<path fill="none" stroke="black" d="M117.57,-571.41C119.98,-563.65 122.88,-554.28 125.58,-545.55"/>
+<polygon fill="black" stroke="black" points="128.9,-546.66 128.52,-536.07 122.22,-544.59 128.9,-546.66"/>
+</g>
+<!-- Decay -->
+<g id="node6" class="node">
+<title>Decay</title>
+<polygon fill="none" stroke="black" points="220.39,-461.6 60.1,-461.6 60.1,-425.6 220.39,-425.6 220.39,-461.6"/>
+<text xml:space="preserve" text-anchor="middle" x="140.24" y="-446.9" font-family="Helvetica,sans-Serif" font-size="11.00">Apply optional edge decay</text>
+<text xml:space="preserve" text-anchor="middle" x="140.24" y="-433.7" font-family="Helvetica,sans-Serif" font-size="11.00">(remove edges with p_decay)</text>
+</g>
+<!-- ProbClose&#45;&gt;Decay -->
+<g id="edge5" class="edge">
+<title>ProbClose-&gt;Decay</title>
+<path fill="none" stroke="black" d="M135.7,-498.41C136.35,-490.74 137.13,-481.49 137.86,-472.84"/>
+<polygon fill="black" stroke="black" points="141.32,-473.4 138.68,-463.14 134.35,-472.81 141.32,-473.4"/>
+</g>
+<!-- LoopEnd -->
+<g id="node7" class="node">
+<title>LoopEnd</title>
+<polygon fill="none" stroke="black" points="281.29,-388.6 111.2,-388.6 111.2,-352.6 281.29,-352.6 281.29,-388.6"/>
+<text xml:space="preserve" text-anchor="middle" x="196.24" y="-367.3" font-family="Helvetica,sans-Serif" font-size="11.00">End of iteration / Next iteration?</text>
+</g>
+<!-- Decay&#45;&gt;LoopEnd -->
+<g id="edge6" class="edge">
+<title>Decay-&gt;LoopEnd</title>
+<path fill="none" stroke="black" d="M153.8,-425.41C160.4,-417.04 168.48,-406.8 175.81,-397.5"/>
+<polygon fill="black" stroke="black" points="178.43,-399.84 181.88,-389.82 172.94,-395.5 178.43,-399.84"/>
+</g>
+<!-- LoopEnd&#45;&gt;LoopStart -->
+<g id="edge7" class="edge">
+<title>LoopEnd-&gt;LoopStart</title>
+<path fill="none" stroke="black" d="M220.64,-388.86C235.74,-401.72 252.24,-420.78 252.24,-442.6 252.24,-590.6 252.24,-590.6 252.24,-590.6 252.24,-609.85 239.04,-625.77 224.1,-637.62"/>
+<polygon fill="black" stroke="black" points="222.43,-634.51 216.42,-643.23 226.56,-640.16 222.43,-634.51"/>
+<text xml:space="preserve" text-anchor="middle" x="297.54" y="-513.6" font-family="Helvetica,sans-Serif" font-size="10.00">if more steps remain</text>
+</g>
+<!-- Metrics -->
+<g id="node8" class="node">
+<title>Metrics</title>
+<polygon fill="none" stroke="black" points="279.45,-304.6 113.04,-304.6 113.04,-230.6 279.45,-230.6 279.45,-304.6"/>
+<text xml:space="preserve" text-anchor="middle" x="196.24" y="-290.7" font-family="Helvetica,sans-Serif" font-size="11.00">Metric Calculation</text>
+<text xml:space="preserve" text-anchor="middle" x="196.24" y="-277.5" font-family="Helvetica,sans-Serif" font-size="11.00">• Average degree</text>
+<text xml:space="preserve" text-anchor="middle" x="196.24" y="-264.3" font-family="Helvetica,sans-Serif" font-size="11.00">• Transitivity</text>
+<text xml:space="preserve" text-anchor="middle" x="196.24" y="-251.1" font-family="Helvetica,sans-Serif" font-size="11.00">• Clustering coefficient</text>
+<text xml:space="preserve" text-anchor="middle" x="196.24" y="-237.9" font-family="Helvetica,sans-Serif" font-size="11.00">• Approx. shortest-path length</text>
+</g>
+<!-- LoopEnd&#45;&gt;Metrics -->
+<g id="edge8" class="edge">
+<title>LoopEnd-&gt;Metrics</title>
+<path fill="none" stroke="black" d="M196.24,-352.47C196.24,-342.37 196.24,-329.05 196.24,-316"/>
+<polygon fill="black" stroke="black" points="199.74,-316.21 196.24,-306.21 192.74,-316.21 199.74,-316.21"/>
+<text xml:space="preserve" text-anchor="middle" x="217.37" y="-325.6" font-family="Helvetica,sans-Serif" font-size="10.00">if finished</text>
+</g>
+<!-- Visual -->
+<g id="node9" class="node">
+<title>Visual</title>
+<polygon fill="none" stroke="black" points="320.09,-193.6 72.4,-193.6 72.4,-146 320.09,-146 320.09,-193.6"/>
+<text xml:space="preserve" text-anchor="middle" x="196.24" y="-179.7" font-family="Helvetica,sans-Serif" font-size="11.00">Visualization Generation</text>
+<text xml:space="preserve" text-anchor="middle" x="196.24" y="-166.5" font-family="Helvetica,sans-Serif" font-size="11.00">• Time-series plots</text>
+<text xml:space="preserve" text-anchor="middle" x="196.24" y="-153.3" font-family="Helvetica,sans-Serif" font-size="11.00">• Network animation (edges forming over time)</text>
+</g>
+<!-- Metrics&#45;&gt;Visual -->
+<g id="edge9" class="edge">
+<title>Metrics-&gt;Visual</title>
+<path fill="none" stroke="black" d="M196.24,-230.11C196.24,-221.94 196.24,-213.3 196.24,-205.21"/>
+<polygon fill="black" stroke="black" points="199.74,-205.4 196.24,-195.4 192.74,-205.4 199.74,-205.4"/>
+</g>
+<!-- Export -->
+<g id="node10" class="node">
+<title>Export</title>
+<polygon fill="none" stroke="black" points="300.55,-109 91.94,-109 91.94,-73 300.55,-73 300.55,-109"/>
+<text xml:space="preserve" text-anchor="middle" x="196.24" y="-94.3" font-family="Helvetica,sans-Serif" font-size="11.00">Output Export</text>
+<text xml:space="preserve" text-anchor="middle" x="196.24" y="-81.1" font-family="Helvetica,sans-Serif" font-size="11.00">Save figures, animation, and snapshots</text>
+</g>
+<!-- Visual&#45;&gt;Export -->
+<g id="edge10" class="edge">
+<title>Visual-&gt;Export</title>
+<path fill="none" stroke="black" d="M196.24,-145.76C196.24,-137.92 196.24,-129.06 196.24,-120.83"/>
+<polygon fill="black" stroke="black" points="199.74,-120.92 196.24,-110.92 192.74,-120.92 199.74,-120.92"/>
+</g>
+<!-- End -->
+<g id="node11" class="node">
+<title>End</title>
+<polygon fill="none" stroke="black" points="223.24,-36 169.24,-36 169.24,0 223.24,0 223.24,-36"/>
+<text xml:space="preserve" text-anchor="middle" x="196.24" y="-14.7" font-family="Helvetica,sans-Serif" font-size="11.00">End</text>
+</g>
+<!-- Export&#45;&gt;End -->
+<g id="edge11" class="edge">
+<title>Export-&gt;End</title>
+<path fill="none" stroke="black" d="M196.24,-72.81C196.24,-65.23 196.24,-56.1 196.24,-47.54"/>
+<polygon fill="black" stroke="black" points="199.74,-47.54 196.24,-37.54 192.74,-47.54 199.74,-47.54"/>
+</g>
+</g>
+</svg>
