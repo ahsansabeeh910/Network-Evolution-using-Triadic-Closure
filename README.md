@@ -138,7 +138,7 @@ Network-Evolution-Triadic-Closure/
 ## Clone Repository
 
 ```bash
-git clone https://github.com/your-username/Network-Evolution-Triadic-Closure.git
+git clone https://github.com/ahsansabeeh910/Network-Evolution-Triadic-Closure.git
 ```
 
 ## Navigate to Project
